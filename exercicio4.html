@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajuste Salarial</title>
+</head>
+<body>
+    <h2>Calculadora de Reajuste Salarial</h2>
+    <form id="formReajusteSalarial">
+        <label for="salario">Salário Atual (em R$):</label>
+        <input type="number" id="salario" step="0.01" required>
+        <br><br>
+        <label for="percentual">Percentual de Reajuste (%):</label>
+        <input type="number" id="percentual" step="0.01" required>
+        <br><br>
+        <button type="button" onclick="calcularNovoSalario()">Calcular Novo Salário</button>
+    </form>
+    <p id="resultado"></p>
+    <a href="index.html" class="btn btn-info">Voltar</a>
+
+    <script>
+        function calcularNovoSalario() {
+            const salario = parseFloat(document.getElementById('salario').value);
+            const percentual = parseFloat(document.getElementById('percentual').value);
+            const reajuste = salario * (percentual / 100);
+            const novoSalario = salario + reajuste;
+            document.getElementById('resultado').innerText = `Novo Salário: R$ ${novoSalario.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
